@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Find the dot product of two vectors.}{2}{0}{1}
+\beamer@sectionintoc {2}{Find the angle measure between two vectors.}{21}{0}{2}
+\beamer@sectionintoc {3}{Find the projection of one vector onto another.}{44}{0}{3}
+\beamer@sectionintoc {4}{Find the work done in applying a force to an object.}{72}{0}{4}
