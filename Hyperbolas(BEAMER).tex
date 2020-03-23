@@ -1,0 +1,339 @@
+\documentclass[t,usenames,dvipsnames]{beamer}
+\usetheme{Copenhagen}
+\setbeamertemplate{headline}{} % remove toc from headers
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{amsmath, tikz, xcolor, bm, pgfplots}
+\pgfplotsset{compat = newest}
+\usetikzlibrary{arrows, calc, decorations.pathreplacing, patterns}
+
+\title{Hyperbolas}
+\author{}
+\date{}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Objectives}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Intro}
+The definition of a hyperbola is the same as the definition of an ellipse. The only difference is we replace the word \emph{sum} in the definition of an ellipse with \emph{difference} for a hyperbola.  \newline\\  \pause
+
+A \alert{hyperbola} is the set of points such that the \underline{difference} of their distances from 2 fixed points (called \alert{foci}) is constant.
+\end{frame}
+
+\begin{frame}{Intro}
+Just like an ellipse, the midpoint joining the foci is the \textbf{center}.    \newline\\   \pause
+
+Whereas ellipses could appear taller or wider, hyperbolas will open up and down, or left and right. \newline\\  \pause
+
+A key difference, however, is that hyperbolas will open left/right if the sign in front of $x$ is positive, and will open up/down if the sign in front of $y$ is positive; regardless of the values of $a$ and $b$.  
+\end{frame}
+
+\begin{frame}{Intro}
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+axis lines = middle,
+%grid,
+xticklabels = {},
+yticklabels = {},
+xmin = -6, xmax = 6,
+ymin = -6, ymax = 6
+]
+\draw [dashed, line width=1.25] (-1,-1) rectangle (1,1);
+\draw [dashed, line width=1.25] (-5,-5) -- (5,5);
+\draw [dashed, line width=1.25] (-5,5) -- (5,-5);
+\addplot [blue, line width = 1.5, domain=-2.5:2.5] ({cosh(x)}, {sinh(x)});
+\addplot [blue, line width = 1.5, domain=-2.5:2.5] (-{cosh(x)}, {sinh(x)});
+\draw [fill=blue, color=blue] (-1,0) circle (2pt);
+\node at (-1,0) [anchor=south east, color=blue, yshift=-0.15cm] {$\bm{(-a,0)}$};
+\draw [fill=blue, color=blue] (1,0) circle (2pt);
+\node at (1,0) [anchor=south west, color=blue, yshift=-0.15cm] {$\bm{(a,0)}$};
+\draw [fill=violet, color=violet] (3.75,0) circle (2pt);
+\node at (3.5,0) [anchor=north west, color=violet, xshift=-0.25cm] {$\bm{(c,0)}$};
+\draw [fill=violet, color=violet] (-3.75,0) circle (2pt);
+\node at (-3.5,0) [anchor=north east, color=violet, xshift=0.25cm] {$\bm{(-c,0)}$};
+\draw [fill=black] (0,1) circle (2pt);
+\node at (0,1) [anchor=south] {$\bm{(0,b)}$};
+\draw [fill=black] (0,-1) circle (2pt);
+\node at (0,-1) [anchor=north] {$\bm{(0,-b)}$};
+\end{axis}
+\end{tikzpicture} \newline\\
+\begin{tabular}{rl}
+    \onslide<2->{\textbf{Equation}  &    $\dfrac{(x-h)^2}{a^2} - \dfrac{(y-k)^2}{b^2} = 1$\\[10pt]}   
+    \onslide<3->{\textbf{Vertices}   &   $(h\pm a,k)$\\[10pt]} 
+    \onslide<4->{\textbf{Foci}   &   $(h\pm c,k)$ \\} 
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Intro}
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+axis lines = middle,
+%grid,
+xticklabels = {},
+yticklabels = {},
+xmin = -6, xmax = 6,
+ymin = -6, ymax = 6
+]
+\draw [dashed, line width=1.25] (-1,-1) rectangle (1,1);
+\draw [dashed, line width=1.25] (-5,-5) -- (5,5);
+\draw [dashed, line width=1.25] (-5,5) -- (5,-5);
+\addplot [blue, line width = 1.5, domain=-2.5:2.5] ({cosh(x)}, {sinh(x)});
+\addplot [blue, line width = 1.5, domain=-2.5:2.5] (-{cosh(x)}, {sinh(x)});
+\draw [fill=blue, color=blue] (-1,0) circle (2pt);
+\node at (-1,0) [anchor=south east, color=blue, yshift=-0.15cm] {$\bm{(-a,0)}$};
+\draw [fill=blue, color=blue] (1,0) circle (2pt);
+\node at (1,0) [anchor=south west, color=blue, yshift=-0.15cm] {$\bm{(a,0)}$};
+\draw [fill=violet, color=violet] (3.75,0) circle (2pt);
+\node at (3.5,0) [anchor=north west, color=violet, xshift=-0.25cm] {$\bm{(c,0)}$};
+\draw [fill=violet, color=violet] (-3.75,0) circle (2pt);
+\node at (-3.5,0) [anchor=north east, color=violet, xshift=0.25cm] {$\bm{(-c,0)}$};
+\draw [fill=black] (0,1) circle (2pt);
+\node at (0,1) [anchor=south] {$\bm{(0,b)}$};
+\draw [fill=black] (0,-1) circle (2pt);
+\node at (0,-1) [anchor=north] {$\bm{(0,-b)}$};
+\end{axis}
+\end{tikzpicture}   \newline\\
+\begin{tabular}{rl}
+    \onslide<2->{\textbf{\textit{x}-Axis}    &   Traverse Axis\\[10pt]}   
+    \onslide<3->{\textbf{\textit{y}-Axis}    &   Conjugate Axis  \\}   
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Intro}
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+axis lines = middle,
+%grid,
+xticklabels = {},
+yticklabels = {},
+xmin = -6, xmax = 6,
+ymin = -6, ymax = 6
+]
+\draw [dashed, line width=1.25] (-1,-1) rectangle (1,1);
+\draw [dashed, line width=1.25] (-5,-5) -- (5,5);
+\draw [dashed, line width=1.25] (-5,5) -- (5,-5);
+\addplot [blue, line width = 1.5, domain=-2.5:2.5] ({cosh(x)}, {sinh(x)});
+\addplot [blue, line width = 1.5, domain=-2.5:2.5] (-{cosh(x)}, {sinh(x)});
+\draw [fill=blue, color=blue] (-1,0) circle (2pt);
+\node at (-1,0) [anchor=south east, color=blue, yshift=-0.15cm] {$\bm{(-a,0)}$};
+\draw [fill=blue, color=blue] (1,0) circle (2pt);
+\node at (1,0) [anchor=south west, color=blue, yshift=-0.15cm] {$\bm{(a,0)}$};
+\draw [fill=violet, color=violet] (3.75,0) circle (2pt);
+\node at (3.5,0) [anchor=north west, color=violet, xshift=-0.25cm] {$\bm{(c,0)}$};
+\draw [fill=violet, color=violet] (-3.75,0) circle (2pt);
+\node at (-3.5,0) [anchor=north east, color=violet, xshift=0.25cm] {$\bm{(-c,0)}$};
+\draw [fill=black] (0,1) circle (2pt);
+\node at (0,1) [anchor=south] {$\bm{(0,b)}$};
+\draw [fill=black] (0,-1) circle (2pt);
+\node at (0,-1) [anchor=north] {$\bm{(0,-b)}$};
+\end{axis}
+\end{tikzpicture}   \newline\\
+\begin{tabular}{rl}
+    \onslide<2->{$\bm{c^2}$  &   $a^2+b^2$\\[10pt]}   
+    \onslide<3->{\textbf{Asymptotes} &   $y = \pm \dfrac{b}{a}(x-h) + k$  \\}  
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Intro}
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+axis lines = middle,
+%grid,
+xticklabels = {},
+yticklabels = {},
+xmin = -6, xmax = 6,
+ymin = -6, ymax = 6
+]
+\draw [dashed, line width=1.25] (-1,-1) rectangle (1,1);
+\draw [dashed, line width=1.25] (-5,-5) -- (5,5);
+\draw [dashed, line width=1.25] (-5,5) -- (5,-5);
+\addplot [red, line width = 1.5, domain=-2.5:2.5] ({sinh(x)}, {cosh(x)});
+\addplot [red, line width = 1.5, domain=-2.5:2.5] ({sinh(x)}, {-cosh(x)});
+\draw [fill=red, color=red] (0,1) circle (2pt);
+\node at (0,1) [anchor=south, color=red, yshift=0.15cm] {$\bm{(0,a)}$};
+\draw [fill=blue, color=red] (0,-1) circle (2pt);
+\node at (0,-1) [anchor=north, color=red, yshift=-0.15cm] {$\bm{(0,-a)}$};
+\draw [fill=violet, color=violet] (0,3.75) circle (2pt);
+\node at (0,3.75) [anchor=south, color=violet] {$\bm{(0,c)}$};
+\draw [fill=violet, color=violet] (0,-3.75) circle (2pt);
+\node at (0,-3.75) [anchor=north, color=violet] {$\bm{(0,-c)}$};
+\draw [fill=black] (1,0) circle (2pt);
+\node at (1,0) [anchor=south west] {$\bm{(b,0)}$};
+\draw [fill=black] (-1,0) circle (2pt);
+\node at (-1,0) [anchor=south east] {$\bm{(-b,0)}$};
+\end{axis}
+\end{tikzpicture}   \newline\\
+\begin{tabular}{rl}
+    \onslide<2->{\textbf{Equation}  &     $\dfrac{(y-k)^2}{a^2} - \dfrac{(x-h)^2}{b^2} = 1$}   \\[0.2in]
+    \onslide<3->{\textbf{Vertices}   &      $(h,k\pm a)$} \\[0.15in]
+    \onslide<4->{\textbf{Foci}    &   $(h, k\pm c)$}    \\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Intro}
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+axis lines = middle,
+%grid,
+xticklabels = {},
+yticklabels = {},
+xmin = -6, xmax = 6,
+ymin = -6, ymax = 6
+]
+\draw [dashed, line width=1.25] (-1,-1) rectangle (1,1);
+\draw [dashed, line width=1.25] (-5,-5) -- (5,5);
+\draw [dashed, line width=1.25] (-5,5) -- (5,-5);
+\addplot [red, line width = 1.5, domain=-2.5:2.5] ({sinh(x)}, {cosh(x)});
+\addplot [red, line width = 1.5, domain=-2.5:2.5] ({sinh(x)}, {-cosh(x)});
+\draw [fill=red, color=red] (0,1) circle (2pt);
+\node at (0,1) [anchor=south, color=red, yshift=0.15cm] {$\bm{(0,a)}$};
+\draw [fill=blue, color=red] (0,-1) circle (2pt);
+\node at (0,-1) [anchor=north, color=red, yshift=-0.15cm] {$\bm{(0,-a)}$};
+\draw [fill=violet, color=violet] (0,3.75) circle (2pt);
+\node at (0,3.75) [anchor=south, color=violet] {$\bm{(0,c)}$};
+\draw [fill=violet, color=violet] (0,-3.75) circle (2pt);
+\node at (0,-3.75) [anchor=north, color=violet] {$\bm{(0,-c)}$};
+\draw [fill=black] (1,0) circle (2pt);
+\node at (1,0) [anchor=south west] {$\bm{(b,0)}$};
+\draw [fill=black] (-1,0) circle (2pt);
+\node at (-1,0) [anchor=south east] {$\bm{(-b,0)}$};
+\end{axis}
+\end{tikzpicture}   \newline\\
+\begin{tabular}{rl}
+    \onslide<2->{\textbf{\textit{x}-Axis}       &   Conjugate Axis}    \\[0.15in]
+    \onslide<3->{\textbf{\textit{y}-Axis}       &   Traverse Axis}    \\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Intro}
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[
+axis lines = middle,
+%grid,
+xticklabels = {},
+yticklabels = {},
+xmin = -6, xmax = 6,
+ymin = -6, ymax = 6
+]
+\draw [dashed, line width=1.25] (-1,-1) rectangle (1,1);
+\draw [dashed, line width=1.25] (-5,-5) -- (5,5);
+\draw [dashed, line width=1.25] (-5,5) -- (5,-5);
+\addplot [red, line width = 1.5, domain=-2.5:2.5] ({sinh(x)}, {cosh(x)});
+\addplot [red, line width = 1.5, domain=-2.5:2.5] ({sinh(x)}, {-cosh(x)});
+\draw [fill=red, color=red] (0,1) circle (2pt);
+\node at (0,1) [anchor=south, color=red, yshift=0.15cm] {$\bm{(0,a)}$};
+\draw [fill=blue, color=red] (0,-1) circle (2pt);
+\node at (0,-1) [anchor=north, color=red, yshift=-0.15cm] {$\bm{(0,-a)}$};
+\draw [fill=violet, color=violet] (0,3.75) circle (2pt);
+\node at (0,3.75) [anchor=south, color=violet] {$\bm{(0,c)}$};
+\draw [fill=violet, color=violet] (0,-3.75) circle (2pt);
+\node at (0,-3.75) [anchor=north, color=violet] {$\bm{(0,-c)}$};
+\draw [fill=black] (1,0) circle (2pt);
+\node at (1,0) [anchor=south west] {$\bm{(b,0)}$};
+\draw [fill=black] (-1,0) circle (2pt);
+\node at (-1,0) [anchor=south east] {$\bm{(-b,0)}$};
+\end{axis}
+\end{tikzpicture}   \newline\\
+\begin{tabular}{rl}
+    \onslide<2->{$\bm{c^2}$     &   $a^2+b^2$ }  \\[0.15in]
+    \onslide<3->{\textbf{Asymptotes}    &   $y = \pm\dfrac{a}{b}(x-h)+k$}  \\
+\end{tabular}
+\end{center}
+\end{frame}
+
+
+\section{Find the center, vertices, foci, and asymptote equations for a hyperbola.}
+
+\begin{frame}{Example 1}
+Find the center, vertices, foci, and equations of the asymptotes for the hyperbola \[\frac{(x-2)^2}{4} - \frac{y^2}{25} = 1\]  
+\begin{minipage}{0.5\textwidth}
+\onslide<2->{
+\begin{tikzpicture}[scale=0.6]
+\begin{axis}[
+axis lines = middle,
+axis line style = thick,
+tick style = ultra thick,
+grid,
+xtick = {-4,-3,...,7},
+ytick = {-6,-5,...,6},
+xticklabels = {},
+yticklabels = {},
+xmin = -4, xmax = 8,
+ymin = -6, ymax = 6,
+width = 10cm,
+]
+\addplot [blue, line width = 1.5, domain=-5:5, smooth] ({4*cosh(x)+2}, {5*sinh(x)});
+\addplot [blue, line width = 1.5, domain=-5:5, smooth] ({-4*cosh(x)+2}, {5*sinh(x)});
+\addplot [mark=*, color=red] coordinates { (2,0) };
+\addplot [mark=*, color=blue] coordinates {(-2,0) (6,0)};
+\end{axis}
+\end{tikzpicture}}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.45\textwidth}
+\onslide<3->{{\color{red}Center: $(2, 0)$}   \\[8pt]} 
+\onslide<4->{$a^2 = 4 \longrightarrow a = \pm 4$} \\[8pt]
+\onslide<5->{{\color{blue}Vertices: $(2 \pm 4, 0)$}} \\[8pt]
+\onslide<6->{{\color{blue}Vertices: $(-2,0)$ and $(6,0)$}} \\[8pt]
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Example 1 $\frac{(x-2)^2}{4} - \frac{y^2}{25} = 1$}
+\begin{minipage}{0.5\textwidth}
+\begin{tikzpicture}[scale=0.6]
+\begin{axis}[
+axis lines = middle,
+axis line style = thick,
+tick style = ultra thick,
+grid,
+xtick = {-4,-3,...,7},
+ytick = {-6,-5,...,6},
+xticklabels = {},
+yticklabels = {},
+xmin = -4, xmax = 8,
+ymin = -6, ymax = 6,
+width = 10cm,
+]
+\addplot [blue, line width = 1.5, domain=-5:5, smooth] ({4*cosh(x)+2}, {5*sinh(x)});
+\addplot [blue, line width = 1.5, domain=-5:5, smooth] ({-4*cosh(x)+2}, {5*sinh(x)});
+\addplot [mark=*, color=red] coordinates { (2,0) };
+\addplot [mark=*, color=blue] coordinates {(-2,0) (6,0)};
+\addplot [mark=*, color=violet] coordinates {(2+sqrt(29),0) (2-sqrt(29),0)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.45\textwidth}
+\onslide<2->{{\color{violet}Foci: $c^2 = a^2 + b^2$}} \\[8pt]
+\onslide<3->{{\color{violet}Foci: $c^2 = 4 + 25$}} \\[8pt]
+\onslide<4->{{\color{violet}Foci: $c = \pm \sqrt{29}$}} \\[8pt]
+\onslide<5->{{\color{violet}Foci: $(2 \pm \sqrt{29}, 0)$}} \\[8pt]
+\end{minipage}
+\onslide<6->{Asymptotes: $y - 0 = \pm \frac{5}{2}(x-2)$}
+\end{frame}
+
+\section{Write the equation for a hyperbola in standard form.}
+
+\end{document}
