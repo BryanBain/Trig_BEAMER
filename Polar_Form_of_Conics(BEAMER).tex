@@ -1,0 +1,250 @@
+\documentclass[t,usenames,dvipsnames]{beamer}
+\usetheme{Copenhagen}
+\setbeamertemplate{headline}{} % remove toc from headers
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{amsmath, tikz, xcolor, array, graphicx}
+\usetikzlibrary{arrows.meta}
+\everymath{\displaystyle}
+
+\title{Polar Form of Conics}
+\author{}
+\date{}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Objectives}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\section{Analyze the graphs of conic sections in polar form.}
+
+\begin{frame}{Intro}
+Given a fixed line $L$, a point $F$ not on $L$, and a positive number $e$, a \alert{conic section} is the set of all points $P$ such that \vspace{10pt}
+\[
+\frac{\text{the distance from $P$ to $F$}}{\text{the distance from $P$ to $L$}} = e
+\]
+\pause
+\newline\\
+
+The line $L$ is called the \alert{directrix} of the conic section, the point $F$ is called a \alert{focus} of the conic section, and the constant $e$ is called the \alert{eccentricity} of the conic section.
+\end{frame}
+
+
+\begin{frame}{Eccentricity, Focus, and Directrix Line}
+    The conic section has eccentricity $e$, a focus $F$ at the origin and directrix line $x = -d$: \newline\\
+
+\begin{center}
+    \begin{tikzpicture}
+    \draw [->, >=stealth] (-3,0) -- (4,0) node [below, right] {$x$};
+    \draw [->, >=stealth] (0,-1) -- (0,4) node [above, right] {$y$};
+    \coordinate (P) at (50:3.5);
+    \coordinate (O) at (0,0);
+    \draw [fill=black] (P) circle (1pt) node [right] {$P(r, \theta)$};
+    \node at (O) [below right] {$O=F$};
+    \draw [dashed] (O) -- (P) node [midway, above left] {$r$};
+    \draw [<->, >=stealth, color=red] (-2.25,4) -- (-2.25,-0.5) node [below] {$x=-d$};
+    \draw [<->, >=stealth, dashed, color=blue] (P) -- (0,2.68) node [midway, above] {$r\cos\theta$};
+    \draw [<->, >=stealth, dashed, color=red] (-2.25,2.68) -- (0,2.68) node [midway, above] {$d$};
+    \draw [->, >=stealth] (0:1) arc (0:50:1) node [midway, right] {$\theta$}; 
+    \node at (-2.25,3.75) [red,left] {$L$};
+    \end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{General Equation}
+From which we get   
+\[
+e = \frac{\text{the distance from $P$ to $F$}}{\text{the distance from $P$ to $L$}} = \frac{r}{d+r\cos\theta} = e
+\]
+\pause
+So that $r = e(d + r\cos\theta)$, and solving for $r$ gives us  
+\begin{align*}
+    \onslide<3->{r &= ed +er\cos\theta} \\[8pt]
+    \onslide<4->{r - er\cos\theta &= ed} \\[8pt]
+    \onslide<5->{r(1-e\cos\theta) &= ed} \\[8pt]
+    \onslide<6->{r &= \frac{ed}{1-e\cos\theta}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 1}
+Examine the graphs of each of the following for different values of $d$, but with $e = 1$.  \newline\\
+(a) \quad $r = \frac{ed}{1+e\cos\theta}$    \pause    \quad $\longrightarrow \quad r = \frac{d}{1+\cos\theta}$ \newline\\ \pause
+    \begin{itemize}
+        \item Parabola (opens left or right)  \pause  \newline\\
+        \item Vertex at $\left(\frac{1}{2}d, 0\right)$ \pause \newline\\
+        \item $d > 0$ opens left    \pause  \newline\\
+        \item $d < 0$ opens right   \pause  \newline\\
+        \item $y$-intercepts at $\left(0, \pm d\right)$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example 1}
+(b) \quad $r = \frac{ed}{1-e\cos\theta}$        \pause    \quad $\longrightarrow \quad r = \frac{d}{1-\cos\theta}$ \newline\\ \pause
+    \begin{itemize}
+        \item Parabola (opens left or right)  \pause  \newline\\
+        \item Vertex at $\left(-\frac{1}{2}d, 0\right)$ \pause \newline\\
+        \item $d > 0$ opens right    \pause  \newline\\
+        \item $d < 0$ opens left   \pause  \newline\\
+        \item $y$-intercepts at $\left(0, \pm d\right)$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example 1}
+(c) \quad $r = \frac{ed}{1+e\sin\theta}$    \pause    \quad $\longrightarrow \quad r = \frac{d}{1+\sin\theta}$ \newline\\ \pause
+    \begin{itemize}
+        \item Parabola (opens up or down)  \pause  \newline\\
+        \item Vertex at $\left(0, -\frac{1}{2}d\right)$ \pause \newline\\
+        \item $d > 0$ opens down    \pause  \newline\\
+        \item $d < 0$ opens up   \pause  \newline\\
+        \item $x$-intercepts at $\left(\pm d, 0\right)$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example 1}
+(d) \quad   $r = \frac{ed}{1-e\sin\theta}$  \pause    \quad $\longrightarrow \quad r = \frac{d}{1-\sin\theta}$ \newline\\ \pause
+    \begin{itemize}
+        \item Parabola (opens up or down)  \pause  \newline\\
+        \item Vertex at $\left(0, -\frac{1}{2}d\right)$ \pause \newline\\
+        \item $d > 0$ opens up    \pause  \newline\\
+        \item $d < 0$ opens down   \pause  \newline\\
+        \item $x$-intercepts at $\left(\pm d, 0\right)$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Follow-up to Example 1}
+Notice each of the previous graphs in Example 1 were parabolas. This is the case when $e = 1$. The directrix lines were either $x = \pm d$ or $y = \pm d$, and the focal diameter is $2d$.
+\end{frame}
+
+\begin{frame}{Example 2}
+Examine the graphs of each of the following for different values of $d$, but with $0 < e < 1$ and $e > 1$.  \newline\\ 
+(a) \quad   $r = \frac{ed}{1+e\cos\theta}$  \newline\\  \pause
+For $0 < e < 1$:    \pause  \newline\\
+
+Ellipse (wide)
+\end{frame}
+
+\begin{frame}{Example 2}
+(a) \quad   $r = \frac{ed}{1+e\cos\theta}$  \newline\\  \pause
+For $e > 1$:    \pause  \newline\\
+
+Hyperbola (opening left and right)
+\end{frame}
+
+
+\begin{frame}{Example 2}
+Examine the graphs of each of the following for different values of $d$, but with $0 < e < 1$ and $e > 1$.  \newline\\ 
+(b) \quad   $r = \frac{ed}{1-e\cos\theta}$  \newline\\  \pause
+For $0 < e < 1$:    \pause  \newline\\
+
+Ellipse (wide)
+\end{frame}
+
+\begin{frame}{Example 2}
+(b) \quad   $r = \frac{ed}{1-e\cos\theta}$  \newline\\  \pause
+For $e > 1$:    \pause  \newline\\
+
+Hyperbola (opening left and right)
+\end{frame}
+
+
+\begin{frame}{Example 2}
+Examine the graphs of each of the following for different values of $d$, but with $0 < e < 1$ and $e > 1$.  \newline\\ 
+(c) \quad   $r = \frac{ed}{1+e\sin\theta}$  \newline\\  \pause
+For $0 < e < 1$:    \pause  \newline\\
+Ellipse (tall)
+\end{frame}
+
+\begin{frame}{Example 2}
+(c) \quad   $r = \frac{ed}{1+e\sin\theta}$  \newline\\  \pause
+For $e > 1$:    \pause  \newline\\
+
+Hyperbola (opening up and down)
+\end{frame}
+
+\begin{frame}{Example 2}
+Examine the graphs of each of the following for different values of $d$, but with $0 < e < 1$ and $e > 1$.  \newline\\ 
+(d) \quad   $r = \frac{ed}{1-e\sin\theta}$  \newline\\  \pause
+For $0 < e < 1$:    \pause  \newline\\
+
+Ellipse (tall)
+\end{frame}
+
+\begin{frame}{Example 2}
+(d) \quad   $r = \frac{ed}{1-e\sin\theta}$  \newline\\  \pause
+For $e > 1$:    \pause  \newline\\
+
+Hyperbola (opening up and down)
+\end{frame}
+
+\begin{frame}{Properties From Example 2}
+In the previous example, the graphs in which $0 < e < 1$ were ellipses. \\[18pt]  \pause
+
+Major axis length is $\frac{2ed}{1-e^2}$ \\[18pt] \pause
+Minor axis length is $\frac{2ed}{\sqrt{1-e^2}}$.   
+\end{frame}
+
+\begin{frame}{Properties From Example 2}
+
+If $e > 1$, the graph is a hyperbola.   \\[18pt] \pause
+
+Transverse axis length $\frac{2ed}{e^2-1}$  \\[18pt]    \pause
+Conjugate axis length $\frac{2ed}{\sqrt{e^2-1}}$.
+\end{frame}
+
+\begin{frame}{Example 3}
+Identify the conic for each.    \newline\\
+(a) \quad $r = \frac{4}{1-\sin\theta}$  \newline\\  \pause
+$e = 1 \longrightarrow$ Parabola (opens up).   \newline\\  \pause
+Vertex: $(0, -2)$   \newline\\  \pause
+Goes through $(\pm 4, 0)$
+\end{frame}
+
+\begin{frame}{Example 3}
+(b) \quad $r = \frac{12}{3-\cos\theta}$ \pause  \quad $\longrightarrow \quad r = \frac{4}{1-1/3\cos\theta}$   \\[18pt] \pause
+$e = \frac{1}{3} \longrightarrow$ Ellipse (wide) \\[15pt] \pause
+$\frac{1}{3}d = 4 \longrightarrow d = 12$   \\[15pt]  \pause
+Major axis length: $\frac{2(1/3)(12)}{1-(1/3)^2} = 9$  \\[15pt]   \pause
+Minor axis length: $\frac{2(1/3)(12)}{\sqrt{1-(1/3)^2}} = 6\sqrt{3}$
+\end{frame}
+
+\begin{frame}{Example 3}
+(c) \quad $r = \frac{6}{1+2\sin\theta}$ \newline\\  \pause
+$e = 2$: Hyperbola (opens up and down) \newline\\ \pause
+$2d = 6 \longrightarrow d = 3$  \newline\\  \pause
+Transverse axis length: $\frac{2(2)(3)}{2^2-1} = 4$ \\[15pt]    \pause
+Conjugate axis length: $\frac{2(2)(3)}{\sqrt{2^2-1}} = 4\sqrt{3}$
+\end{frame}
+
+
+\begin{frame}{Polar Form of Rotated Conics}
+For constants $\ell > 0, \, e \geq 0, \text{ and } \phi,$ the graph of 
+\[
+r = \frac{\ell}{1-e\cos(\theta-\phi)}
+\]
+is a conic section with eccentricity $e$ and one focus at $(0,0)$.
+\end{frame}
+
+\begin{frame}{Polar Form of Rotated Conics}
+    If $e = 0$, the graph is a circle centered at $(0,0)$ with radius $\ell$.
+\end{frame}
+
+\begin{frame}{Polar Form of Rotated Conics}
+    If $e \neq 0$, the conic has a focus at $(0,0)$ and the directrix contains the point with polar coordinates $(-d,\phi)$ where $d = \frac{\ell}{e}$.
+    \begin{itemize}
+        \item If $0 < e < 1$, graph is an ellipse with major axis length $\frac{2ed}{1-e^2}$ and minor axis length $\frac{2ed}{\sqrt{1-e^2}}$. \\[15pt] \pause
+        \item If $e=1$, graph is a parabola with focal diameter $2d$.   \\[15pt]    \pause
+        \item If $e > 1$, graph is a hyperbola with transverse axis length $\frac{2ed}{e^2-1}$ and conjugate axis length $\frac{2ed}{\sqrt{e^2-1}}$
+    \end{itemize}
+\end{frame}
+
+
+\end{document}
