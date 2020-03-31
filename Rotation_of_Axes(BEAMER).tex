@@ -1,0 +1,286 @@
+\documentclass[t,usenames,dvipsnames]{beamer}
+\usetheme{Copenhagen}
+\setbeamertemplate{headline}{} % remove toc from headers
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{amsmath, tikz, xcolor, array, graphicx}
+\usetikzlibrary{arrows.meta}
+\everymath{\displaystyle}
+
+\title{Rotation of Axes}
+\author{}
+\date{}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\section{Rotate a point in the coordinate plane and convert an equation to rotated form.}
+
+\begin{frame}{Intro}
+Normally, in the coordinate plane, each point has both an $x$- and $y$-coordinate; polar representation: $(r, \alpha)$.
+\begin{center}
+    \begin{tikzpicture}[scale=0.5]
+    \draw [<->, >=stealth] (-4.5,0) -- (4.5,0) node [right] {$x$};
+    \draw [<->, >=stealth] (0,-4.5) -- (0,4.5) node [right] {$y$};
+    \draw [fill=black] (2,3) circle (2pt);
+    \draw [dashed] (0,0) -- (2,3) node [pos=0.6, left] {$r$};
+    \draw [->, >=stealth] (0:0.75) arc (0:56.3:0.75) node [midway, right, yshift=0.20cm] {$\alpha$};
+    \end{tikzpicture}
+    
+The point makes an angle $\alpha$ with the $x$-axis.
+\end{center}
+\end{frame}
+
+\begin{frame}{Intro}
+Now, suppose we rotate the axes through the origin at an angle of $\theta$:
+\begin{center}
+    \begin{tikzpicture}[scale=0.5]
+    \draw [<->, >=stealth] (-4.5,0) -- (4.5,0) node [right] {$x$};
+    \draw [<->, >=stealth] (0,-4.5) -- (0,4.5) node [right] {$y$};
+    \draw [<->, >=stealth, dashed, red] (-4,-4) -- (4,4) node [right] {$x'$};
+    \draw [<->, >=stealth, dashed, red] (4,-4) -- (-4,4) node [above] {$y'$};
+    \draw [->, >=stealth, red] (0:1) arc (0:45:1) node [midway, right, red] {$\theta$};
+    \coordinate (A) at (101.3:3.65);
+    \draw [fill=black] (A) circle (2pt);
+    \draw [dashed] (0,0) -- (A) node [pos=0.6, left] {$r$};
+    \draw [->, >=stealth] (45:1.25) arc (45:101.3:1.25) node [midway, above right] {$\alpha$};
+    \end{tikzpicture}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Rotate the Axes}
+From the $x'$- and $y'$ axes perspective, the point $(x', y')$ has polar coordinates $(r\cos \alpha, r\sin \alpha)$. \newline\\ \pause
+
+From the $x$- and $y$-axes perspective, the point has polar coordinates:
+\[
+x = r\cos(\theta + \alpha) \quad \text{and} \quad y = r\sin(\theta + \alpha)
+\]
+\end{frame}
+
+\begin{frame}{Derivation}
+Expanding each of these using the angle sum identities for cosine and sine gives us
+\begin{align*}
+    x &= r \cos(\theta + \alpha)    \\
+      \onslide<2->{&= {\color{red}r}(\cos \theta){(\color{red}\cos\alpha)} - {\color{blue}r}(\sin\theta){\color{blue}(\sin\alpha)}    }\\
+      \onslide<3->{&= {\color{red}x'}\cos\theta - {\color{blue}y'}\sin\theta \quad (\text{since } {\color{red}x'=r\cos\alpha} \text{ and } {\color{blue}y'=r\sin\alpha})  }  
+\end{align*}
+\onslide<4->{and}
+\begin{align*}
+    \onslide<5->{y &= r \sin(\theta + \alpha)    }\\
+    \onslide<6->{  &= {\color{red}r}(\sin \theta){\color{red}(\cos\alpha)} + {\color{blue}r(\sin\alpha)}(\cos\theta)    }\\
+    \onslide<7->{  &= x'\sin\theta + y'\cos\theta    \quad (\text{since } {\color{red}x' = r\cos \alpha} \text{ and } {\color{blue}y' = r\sin \alpha})  }
+\end{align*}
+\end{frame}
+
+\begin{frame}{Derivation}
+So      \newline\\  
+$
+\begin{cases}
+x &= x'\cos\theta - y'\sin\theta    \\
+y &= x'\sin\theta + y'\cos\theta    \\
+\end{cases}
+$   \qquad  \onslide<2->{and \qquad
+$\begin{cases}
+x' &= x\cos \theta + y\sin \theta   \\
+y' &= -x\sin \theta + y\cos \theta  \\
+\end{cases}$}
+
+\vspace{15pt}
+\onslide<3->{
+\emph{Note:} The $x'$ and $y'$ cases can be found by replacing $\theta$ with $-\theta$: 
+
+\[x' = r\cos(\alpha-\theta) \text{ and } y' = r\sin(\alpha-\theta)\]}
+\end{frame}
+
+\begin{frame}{Derivation}
+\emph{Also Note:} The matrix representations of $(x,y)$ and $(x',y')$ are below:
+
+\[
+\begin{bmatrix}
+x \\
+y 
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
+\end{bmatrix}
+\begin{bmatrix}
+x'  \\
+y'
+\end{bmatrix}
+\hspace{0.5in}
+\begin{bmatrix}
+x'  \\
+y'  
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos \theta &   \sin \theta     \\
+-\sin \theta    &   \cos \theta
+\end{bmatrix}
+\begin{bmatrix}
+x   \\  
+y
+\end{bmatrix}
+\]
+\end{frame}
+
+\begin{frame}{Example 1}
+Suppose the $x$- and $y$-axes are both rotated counter-clockwise through the angle $\theta = \frac{\pi}{3}$ to produce the $x'$- and $y'$-axes, respectively.    \newline\\
+(a) \quad   Let $P(x,y) = (2,-4)$ and find $P(x',y')$.
+\begin{align*}
+    \onslide<2->{x' &= x\cos\theta + y\sin\theta   & \onslide<5->{y' &= -x\sin\theta + y\cos\theta}}    & \\[8pt]
+    \onslide<3->{x' &= 2\cos\left(\frac{\pi}{3}\right)+(-4)\sin\left(\frac{\pi}{3}\right) & \onslide<6->{y' &= -2\sin\left(\frac{\pi}{3}\right) + (-4)\cos\left(\frac{\pi}{3}\right)}}  &   \\[8pt]
+    \onslide<4->{x' &= 1-2\sqrt{3} & \onslide<7->{y' &= -\sqrt{3}-2}} & \\
+\end{align*}
+\[
+\onslide<8->{P(x',y') = \left(1-2\sqrt{3}, -2-\sqrt{3}\right)}
+\]
+\end{frame}
+
+\begin{frame}{Example 1}
+(b) \quad   Convert the equation $21x^2 + 10xy\sqrt{3} + 31y^2 = 144$ to an equation in $x'$ and $y'$.
+\begin{align*}
+    x &= x'\cos\left(\frac{\pi}{3}\right) - y'\sin\left(\frac{\pi}{3}\right) \\[10pt]
+    \onslide<2->{{\color{red}x} &{\color{red}= \frac{1}{2}x' - \frac{\sqrt{3}}{2}y'} }\\[10pt]
+    \onslide<3->{x^2 &= \frac{(x')^2}{4} - \frac{(x')(y')\sqrt{3}}{2} + \frac{3(y')^2}{4} }\\[10pt]
+    \onslide<4->{21x^2 &= \frac{21(x')^2}{4} - \frac{21(x')(y')\sqrt{3}}{2} + \frac{63(y')^2}{4}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 1 \quad $21x^2 + 10xy\sqrt{3} + 31y^2 = 144$}
+\begin{align*}
+    y &= x'\sin\left(\frac{\pi}{3}\right) + y'\cos\left(\frac{\pi}{3}\right) \\[10pt]
+    \onslide<2->{{\color{blue}y} &{\color{blue}= \frac{\sqrt{3}}{2}x' + \frac{1}{2}y'} }\\[10pt]
+    \onslide<3->{y^2 &= \frac{3(x')^2}{4} + \frac{(x')(y')\sqrt{3}}{2} + \frac{(y')^2}{4}    }\\[10pt]
+    \onslide<4->{31y^2 &= \frac{93(x')^2}{4} + \frac{31(x')(y')\sqrt{3}}{2} + \frac{31(y')^2}{4}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 1 \quad $21x^2 + 10xy\sqrt{3} + 31y^2 = 144$}
+\begin{align*}
+    xy &= {\color{red}\left(\frac{1}{2}x' - \frac{\sqrt{3}}{2}y'\right)}{\color{blue}\left(\frac{\sqrt{3}}{2}x' + \frac{1}{2}y'\right)} \\[10pt]
+    \onslide<2->{{\color{violet}xy} &= {\color{violet}\frac{(x')^2\sqrt{3}}{4} - \frac{(x')(y')}{2}-\frac{(y')^2\sqrt{3}}{4}}} \\[10pt]
+    \onslide<3->{10xy\sqrt{3} &= \frac{30(x')^2}{4} - \frac{10(x')(y')\sqrt{3}}{2}-\frac{30(y')^2}{4}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 1 \quad $21x^2 + 10xy\sqrt{3} + 31y^2 = 144$}
+$21x^2 + 10xy\sqrt{3} + 31y^2 = 144$    \newline\\
+\setlength{\extrarowheight}{6pt}
+\begin{tabular}{ccccc}
+    \onslide<2->{& $\frac{21(x')^2}{4}$ &  $- \frac{21(x')(y')\sqrt{3}}{2}$ & $+ \frac{63(y')^2}{4}$ &  }\\[12pt]
+    \onslide<3->{& $\frac{30(x')^2}{4}$ &  $- \frac{10(x')(y')\sqrt{3}}{2}$ & $-\frac{30(y')^2}{4}$ & }\\[12pt]
+    \onslide<4->{+& $\frac{93(x')^2}{4}$ & $+ \frac{31(x')(y')\sqrt{3}}{2}$ & $ + \frac{31(y')^2}{4}$ \\[12pt]    \hline}
+    \onslide<5->{& $36(x')^2$ & & + $16(y')^2$ & = 144 }\\
+\end{tabular}
+\[  \onslide<6->{\frac{x'}{4} + \frac{y'}{9} = 1}
+\]
+\end{frame}
+
+\section{Eliminate the xy-term in a rotated conic.}
+
+\begin{frame}{Eliminating the $xy$-Term}
+Given an equation in the form $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$ where $B \neq 0$, there exists an angle $\theta$ such that if we rotate the equation counter-clockwise by $\theta$, the $Bxy$ term will be eliminated.  \newline\\   \pause
+
+Substituting $x'\cos \theta - y'\sin \theta$ and $x'\sin\theta + y'\cos\theta$ for $x$ and $y$, respectively, into $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$, we get \pause
+
+\begin{equation*}
+\begin{split}
+A(x'\cos\theta - y'\sin\theta)^2 + B(x'\cos\theta-y'\sin\theta)(x'\sin\theta + y'\cos\theta)   &\\ + C(x'\sin\theta + y'\cos\theta)^2 + D(x'\cos\theta - y'\sin\theta)  &\\  + E(x'\sin\theta + y'\cos\theta) + F = 0
+\end{split}
+\end{equation*}
+\end{frame}
+
+
+\begin{frame}{Eliminating the $xy$-Term}
+Doing algebra, we get the following coefficient for $x'y'$:
+\begin{align*}
+ &= 2(C-A)\sin\theta\cos\theta + B(\cos^2\theta - \sin^2\theta)  \\[10pt]
+ \onslide<2->{&= (C-A)\sin(2\theta) + B\cos(2\theta)} 
+\end{align*}
+\onslide<3->{If we set this equal to 0, we get $(A-C)\sin(2\theta) = B\cos(2\theta)$}
+\onslide<4->{
+from which
+\[
+\cot(2\theta) = \frac{A-C}{B}
+\]}
+\end{frame}
+
+
+\begin{frame}{Example 2}
+Find the smallest angle of rotation in order to rewrite each of the following without the $xy$-term.  \newline\\
+(a) \quad   $5x^2 + 26xy + 5y^2 - 16x\sqrt{2} + 16y\sqrt{2} - 104 = 0$
+\begin{align*}
+    \onslide<2->{\cot(2\theta) &= \frac{5-5}{26}} \\[6pt]
+    \onslide<3->{\cot(2\theta) &= 0} \\[6pt]
+    \onslide<4->{2\theta &= \cot^{-1}(0)} \\[6pt]
+    \onslide<5->{2\theta &= 90^\circ} \\[6pt]
+    \onslide<6->{\theta &= 45^\circ = \frac{\pi}{4}} \\
+\end{align*}
+\end{frame}
+
+
+\begin{frame}{Example 2}
+(b) \quad $16x^2 + 24xy + 9y^2 + 15x - 20y = 0$
+\begin{align*}
+    \onslide<2->{\cot(2\theta) &= \frac{16-9}{24}} \\[6pt]
+    \onslide<3->{\cot(2\theta) &= \frac{7}{24}} \\[6pt]
+    \onslide<4->{2\theta &= \cot^{-1}\left(\frac{7}{24}\right)} \\[6pt]
+    \onslide<5->{2\theta &\approx 73.8^\circ} \\[6pt]
+    \onslide<6->{\theta &\approx 36.9^\circ} \\
+\end{align*}
+\end{frame}
+
+\section{Determine the graph of a non-degenerate conic section.}
+
+\begin{frame}{Conic Section Based on Equation}
+The presence of an $xy$-term eliminates the ease in which we were previously able to classify a conic section based on its equation. \newline\\  \pause
+
+Given that $Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$ is a non-degenerative conic section:    \newline\\  \pause
+\begin{itemize}
+    \item If $B^2 - 4AC > 0$, then the graph is a hyperbola.    \newline\\  \pause
+    \item If $B^2 - 4AC = 0$, then the graph is a parabola.    \newline\\  \pause
+    \item If $B^2 - 4AC < 0$, then the graph is an ellipse or circle.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example 3}
+Classify each of the following. \newline\\
+(a) \quad   $21x^2 + 10xy\sqrt{3} + 31y^2 = 144$    \newline\\  \pause
+$A = 21 \quad B = 10\sqrt{3} \quad C = 31$  \newline\\  \pause
+$B^2 - 4AC = (10\sqrt{3})^2 - 4(21)(31) = -2304$    \newline\\  \pause
+Equation is an ellipse.
+\end{frame}
+
+\begin{frame}{Example 3}
+Classify each of the following. \newline\\
+(b) \quad   $5x^2 + 26xy + 5y^2 - 16x\sqrt{2} + 16y\sqrt{2} - 104 = 0$  \newline\\  \pause
+$A = 5 \quad B = 26 \quad C = 5$        \newline\\  \pause
+$B^2-4AC = 26^2 - 4(5)(5) = 576$        \newline\\  \pause
+Equation is a hyperbola.
+\end{frame}
+
+\begin{frame}{Example 3}
+Classify each of the following. \newline\\
+(c) \quad   $16x^2 + 24xy + 9y^2 + 15x - 20y = 0$    \newline\\  \pause
+$A = 16 \quad B = 24 \quad C = 9$    \newline\\  \pause
+$B^2 - 4AC = 24^2 - 4(16)(9) = 0$    \newline\\  \pause
+Equation is a parabola.
+\end{frame}
+
+\end{document}
+
