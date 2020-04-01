@@ -9,6 +9,7 @@ Beamer slides of Trig Notes
   <li>graphicx</li>
   <li>pgfplots</li>
   <li>tikz</li>
+  <li>tkz-euclide</li>
   <li>xcolor</li>
  </ul>
  
