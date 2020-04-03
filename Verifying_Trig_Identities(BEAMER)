@@ -1,0 +1,307 @@
+\documentclass[t,usenames,dvipsnames]{beamer}
+\usetheme{Copenhagen}
+\setbeamertemplate{headline}{} % remove toc from headers
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{amsmath, tkz-euclide, tikz, xcolor, pgfplots, array}
+\usetkzobj{all}
+\pgfplotsset{compat = 1.16}
+\usetikzlibrary{arrows.meta, calc, decorations.pathreplacing}
+\pgfplotsset{every axis/.append style = {axis lines = middle, axis line style = {<->}}}
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+\everymath{\displaystyle}
+
+\title{Verifying Trig Identities}
+\author{}
+\date{}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Objectives}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\section{Verify trigonometric identities}
+
+\begin{frame}{Identities}
+    Recall that an \alert{identity} is an equation that is \underline{always} true. \newline\\ 
+    
+    To verify an identity, we will work with the left and/or right sides of the equation given to show that the equation is true for all values of the variable. \newline\\  
+    
+    In this section, the identities will involve trig functions.
+\end{frame}
+
+\begin{frame}{Quotient Identities}
+    The Quotient Identities are
+    \[
+    \tan \theta = \frac{\sin\theta}{\cos\theta} \quad \text{ and } \quad \cot\theta = \frac{\cos\theta}{\sin\theta}
+    \]
+\end{frame}
+
+\begin{frame}{Example 1}
+Use the triangle to verify $\tan\theta = \frac{\sin\theta}{\cos\theta}$ \\[18pt]
+\begin{minipage}{0.3\textwidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 3/0/B, 3/2/C}
+\tkzMarkRightAngle(C,B,A)
+\tkzDrawPolygon(A,B,C)
+\tkzLabelAngle[pos = 0.75](B,A,C){$\theta$}
+\tkzLabelSegment[below](A,B){$x$}
+\tkzLabelSegment[right](B,C){$y$}
+\tkzLabelSegment[above](A,C){$r$}
+\end{tikzpicture}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+\onslide<2->{\frac{\sin\theta}{\cos\theta} &= \dfrac{\left(\dfrac{y}{r}\right)} {\left(\dfrac{x}{r}\right)} } 
+\onslide<3->{{\color{blue}\left(\dfrac{r}{r}\right)}} \\[12pt]
+\onslide<4->{&=\dfrac{y}{x}} \\[12pt]
+\onslide<5->{&=\tan\theta}
+\end{align*}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}{Example 2}
+Verify $\cot\theta = \frac{\cos\theta}{\sin\theta}$ \\[18pt]
+\begin{minipage}{0.3\textwidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 3/0/B, 3/2/C}
+\tkzMarkRightAngle(C,B,A)
+\tkzDrawPolygon(A,B,C)
+\tkzLabelAngle[pos = 0.75](B,A,C){$\theta$}
+\tkzLabelSegment[below](A,B){$x$}
+\tkzLabelSegment[right](B,C){$y$}
+\tkzLabelSegment[above](A,C){$r$}
+\end{tikzpicture}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+\onslide<2->{\frac{\cos\theta}{\sin\theta} &= \dfrac{\left(\dfrac{x}{r}\right)} {\left(\dfrac{y}{r}\right)} } 
+\onslide<3->{{\color{blue}\left(\dfrac{r}{r}\right)}} \\[12pt]
+\onslide<4->{&=\dfrac{x}{y}} \\[12pt]
+\onslide<5->{&=\cot\theta}
+\end{align*}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[c]{Reciprocal Identities}
+\begin{center}
+    \begin{tabular}{p{0.3\textwidth}p{0.3\textwidth}}
+        $\csc\theta = \dfrac{1}{\sin\theta}$    &   $\sin\theta = \dfrac{1}{\csc\theta}$    \\[22pt]
+        $\sec\theta = \dfrac{1}{\cos\theta}$    &   $\cos\theta = \dfrac{1}{\sec\theta}$    \\[22pt]
+        $\cot\theta = \dfrac{1}{\tan\theta}$    &   $\tan\theta = \dfrac{1}{\cot\theta}$    
+    \end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Pythagorean Identities}
+    These are some of the most important identities in this course. \newline\\
+    
+    They are based on the Pythagorean Theorem.
+\end{frame}
+
+\begin{frame}{Example 3}
+Verify $\cos^2\theta + \sin^2\theta = 1$    \\[12pt]
+\begin{minipage}{0.3\textwidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 3/0/B, 3/2/C}
+\tkzMarkRightAngle(C,B,A)
+\tkzDrawPolygon(A,B,C)
+\tkzLabelAngle[pos = 0.75](B,A,C){$\theta$}
+\tkzLabelSegment[below](A,B){$x$}
+\tkzLabelSegment[right](B,C){$y$}
+\tkzLabelSegment[above](A,C){$r$}
+\end{tikzpicture}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+\onslide<2->{x^2 + y^2 &= r^2} \\[12pt]
+\onslide<3->{\frac{x^2}{r^2} + \frac{y^2}{r^2} &= \frac{r^2}{r^2}} \\[12pt]
+\onslide<4->{\left(\frac{x}{r}\right)^2 + \left(\frac{y}{r}\right)^2 &= 1} \\[12pt]
+\onslide<5->{(\cos\theta)^2 + (\sin\theta)^2 &= 1} \\[12pt]
+\onslide<6->{\cos^2\theta + \sin^2\theta &= 1}
+\end{align*}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Example 4}
+Verify $1 + \tan^2\theta = \sec^2\theta$    \\[12pt]
+\begin{minipage}{0.3\textwidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 3/0/B, 3/2/C}
+\tkzMarkRightAngle(C,B,A)
+\tkzDrawPolygon(A,B,C)
+\tkzLabelAngle[pos = 0.75](B,A,C){$\theta$}
+\tkzLabelSegment[below](A,B){$x$}
+\tkzLabelSegment[right](B,C){$y$}
+\tkzLabelSegment[above](A,C){$r$}
+\end{tikzpicture}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+\onslide<2->{x^2 + y^2 &= r^2} \\[12pt]
+\onslide<3->{\frac{x^2}{x^2} + \frac{y^2}{x^2} &= \frac{r^2}{x^2}} \\[12pt]
+\onslide<4->{1 + \left(\frac{y}{x}\right)^2 &= \left(\frac{r}{x}\right)^2} \\[12pt]
+\onslide<5->{1 + (\tan\theta)^2 &= (\sec\theta)^2} \\[12pt]
+\onslide<6->{1 + \tan^2\theta &= \sec^2\theta}
+\end{align*}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Example 5}
+Verify $\cot^2\theta + 1  = \csc^2\theta$    \\[12pt]
+\begin{minipage}{0.3\textwidth}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/A, 3/0/B, 3/2/C}
+\tkzMarkRightAngle(C,B,A)
+\tkzDrawPolygon(A,B,C)
+\tkzLabelAngle[pos = 0.75](B,A,C){$\theta$}
+\tkzLabelSegment[below](A,B){$x$}
+\tkzLabelSegment[right](B,C){$y$}
+\tkzLabelSegment[above](A,C){$r$}
+\end{tikzpicture}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+\onslide<2->{x^2 + y^2 &= r^2} \\[12pt]
+\onslide<3->{\frac{x^2}{y^2} + \frac{y^2}{y^2} &= \frac{r^2}{y^2}} \\[12pt]
+\onslide<4->{\left(\frac{x}{y}\right)^2 + 1 &= \left(\frac{r}{y}\right)^2} \\[12pt]
+\onslide<5->{(\cot\theta)^2 + 1 &= (\csc\theta)^2} \\[12pt]
+\onslide<6->{\cot^2\theta + 1 &= \csc^2\theta}
+\end{align*}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Alternate Forms of Pythagorean Identities}
+    \[
+    \cos^2\theta + \sin^2\theta = 1
+    \]
+    \pause
+    \begin{itemize}
+        \item $1 - \sin^2\theta = \cos^2\theta$ \newline\\  \pause
+        \begin{itemize}
+            \item $(1-\sin\theta)(1+\sin\theta) = \cos^2\theta$ \newline\\  \pause
+        \end{itemize}
+        \item $1 - \cos^2\theta = \sin^2\theta$ \newline\\  \pause
+        \begin{itemize}
+            \item $(1+\cos\theta)(1-\cos\theta) = \sin^2\theta$
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Alternate Forms of Pythagorean Identities}
+    \[
+    1 + \tan^2\theta = \sec^2\theta
+    \]
+    \pause
+    \begin{itemize}
+        \item $\sec^2\theta - 1 = \tan^2\theta$ \newline\\  \pause
+        \begin{itemize}
+            \item $(\sec\theta + 1)(\sec\theta - 1)$ \newline\\  \pause
+        \end{itemize}
+        \item $1 = \sec^2\theta - \tan^2\theta$ \newline\\  \pause
+        \begin{itemize}
+            \item $1 = (\sec\theta + \tan\theta)(\sec\theta - \tan\theta)$
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Alternate Forms of Pythagorean Identities}
+    \[
+    1 + \cot^2\theta = \csc^2\theta
+    \]
+    \pause
+    \begin{itemize}
+        \item $\csc^2\theta - \cot^2\theta = 1$ \newline\\  \pause
+        \begin{itemize}
+            \item $(\csc\theta + \cot\theta)(\csc\theta - \cot\theta) = 1$ \newline\\  \pause
+        \end{itemize}
+        \item $\csc^\theta - 1 = \cot^2\theta$ \newline\\  \pause
+        \begin{itemize}
+            \item $(\csc\theta + 1)(\csc\theta - 1) = \cot^2\theta$
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Strategies For Verifying Trig Identities}
+    \begin{itemize}
+        \item Rewrite other functions in terms of sine and/or cosine.   \newline\\
+        \item Work on one or both sides of the equation at the same time. \newline\\
+        \item Try working on the more complicated side of the identity. \newline\\
+        \item Use Reciprocal and Quotient Identities to write complex fractions that you can then simplify. \newline\\
+        \item Obtain common denominators before adding rational expressions. \newline\\
+        \item Try Pythagorean Identities, especially if you find trig functions raised to a power.  
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Example 6}
+Verify each.    \newline\\
+(a) \quad $\tan\theta = \sin\theta \cdot \sec\theta$
+\begin{align*}
+    \onslide<2->{\dfrac{\sin\theta}{\cos\theta} &= \sin\theta \left(\dfrac{1}{\cos\theta}\right)} \\[12pt]
+    \onslide<3->{\dfrac{\sin\theta}{\cos\theta} &= \dfrac{\sin\theta}{\cos\theta}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 6}
+(b) \quad $(\sec\theta - \tan\theta)(\sec\theta + \tan\theta) = 1$
+\begin{align*}
+    \onslide<2->{\sec\theta(\sec\theta + \tan\theta) - \tan\theta(\sec\theta + \tan\theta) &= 1} \\[12pt]
+    \onslide<3->{\sec^2\theta + \sec\theta\tan\theta - \sec\theta\tan\theta - \tan^2\theta &= 1} \\[12pt]
+    \onslide<4->{\sec^2\theta - \tan^2\theta &= 1} \\[12pt]
+    \onslide<5->{1 &= 1}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 6}
+(c) \quad $\dfrac{\sec\theta}{1-\tan\theta} = \dfrac{1}{\cos\theta - \sin\theta}$ 
+\begin{align*}
+    \onslide<2->{\dfrac{\frac{1}{\cos\theta}}{1-\frac{\sin\theta}{\cos\theta}} &= \dfrac{1}{\cos\theta-\sin\theta}} \\[12pt]
+    \onslide<3->{\dfrac{\frac{1}{\cos\theta}}{1-\frac{\sin\theta}{\cos\theta}}&} \onslide<4->{\left(\dfrac{\cos\theta}{\cos\theta}\right)}   \\[12pt]
+    \onslide<5->{\dfrac{1}{\cos\theta-\sin\theta} &= \dfrac{1}{\cos\theta-\sin\theta}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 6}
+(d) \quad $6\sec\theta\tan\theta = \dfrac{3}{1-\sin\theta} - \dfrac{3}{1+\sin\theta}$   \newline\\
+\begin{align*}
+    \onslide<2->{6\sec\theta\tan\theta &= 6\left(\dfrac{1}{\cos\theta}\right)\left(\dfrac{\sin\theta}{\cos\theta}\right)} \\[18pt]
+    \onslide<3->{&= \dfrac{6\sin\theta}{\cos^2\theta}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 6 \quad $6\sec\theta\tan\theta = \frac{3}{1-\sin\theta} - \frac{3}{1+\sin\theta}$}
+\begin{align*}
+    \dfrac{3}{1-\sin\theta} - \dfrac{3}{1+\sin\theta} &= \onslide<2->{\dfrac{3}{1-\sin\theta}\left(\dfrac{1+\sin\theta}{1+\sin\theta}\right) - \dfrac{3}{1+\sin\theta}\left(\dfrac{1-\sin\theta}{1-\sin\theta}\right)} \\[12pt]
+    \onslide<3->{&= \dfrac{3+3\sin\theta}{1-\sin^2\theta} - \dfrac{3-3\sin\theta}{1-\sin^2\theta}} \\[12pt]
+    \onslide<4->{&= \dfrac{3+3\sin\theta -3+3\sin\theta}{\cos^2\theta}} \\[12pt]
+    \onslide<5->{&= \dfrac{6\sin\theta}{\cos^2\theta}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 6}
+(e) \quad $\dfrac{\sin\theta}{1-\cos\theta} = \dfrac{1+\cos\theta}{\sin\theta}$ \quad (Half-Angle Tangent Identity) 
+\begin{align*}
+    \onslide<2->{\dfrac{\sin\theta}{1-\cos\theta} &}
+    \onslide<3->{\left(\dfrac{1+\cos\theta}{1+\cos\theta}\right)}   \\[12pt]
+    \onslide<4->{\dfrac{\sin\theta(1+\cos\theta)}{1-\cos^2\theta}&} \\[12pt]
+    \onslide<5->{\dfrac{\sin\theta(1+\cos\theta)}{\sin^2\theta}&}    \\[12pt]
+    \onslide<6->{\dfrac{1+\cos\theta}{\sin\theta}&}
+\end{align*}
+\end{frame}
+
+\end{document}
