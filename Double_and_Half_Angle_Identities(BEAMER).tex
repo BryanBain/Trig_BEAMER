@@ -1,0 +1,345 @@
+\documentclass[t,usenames,dvipsnames]{beamer}
+\usetheme{Copenhagen}
+\setbeamertemplate{headline}{} % remove toc from headers
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{amsmath, tkz-euclide, tikz, xcolor, pgfplots, array}
+\usetkzobj{all}
+\pgfplotsset{compat = 1.16}
+\usetikzlibrary{arrows.meta, calc, decorations.pathreplacing}
+\pgfplotsset{every axis/.append style = {axis lines = middle, axis line style = {<->}}}
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+\everymath{\displaystyle}
+
+\title{Double and Half-Angle Identities}
+\author{}
+\date{}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Objectives}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\section{Solve problems using double-angle identities}
+
+\begin{frame}{Double-Angle Identities}
+The double-angle identities are an extension of the \alert{angle sum identities}. \newline\\
+
+In this case, the angles would be \underline{equal}.    \pause
+
+\begin{align*}
+    \onslide<2->{\sin(2A) &= \sin(A + A)} \\[6pt]
+    \onslide<3->{&= \sin A \cdot \cos A + \sin A \cdot \cos A} \\[6pt]
+    \onslide<4->{&= 2\sin A \cos A}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Double-Angle Identities}
+    \begin{align*}
+        \sin(2A) &= 2\sin A \cos A  \\[10pt]
+        \cos(2A) &= \cos^2 A - \sin^2 A \\[10pt]
+        \tan(2A) &= \frac{2\tan A}{1 - \tan^2 A}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Alternate Forms of $\cos (2A)$}
+    $\cos (2A)$ has two alternate forms.    \newline\\
+    
+    Alternate form \# 1:    
+    \begin{align*}
+        \onslide<2->{\cos(2A) &= {\color{red}\cos^2 A} - \sin^2 A} \\[10pt]
+        \onslide<3->{&= {\color{red}1 - \sin^2 A} - \sin^2 A} \\[10pt]
+        \onslide<4->{&= 1 - 2\sin^2 A}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Alternate Forms of $\cos (2A)$}
+    Alternate form \# 2:
+    \begin{align*}
+        \onslide<2->{\cos(2A) &= \cos^2 A - {\color{red}\sin^2 A}} \\[10pt]
+        \onslide<3->{&= \cos^2 A - ({\color{red}1-\cos^2 A})} \\[10pt]
+        \onslide<4->{&= \cos^2 A - 1 + \cos^2 A} \\[10pt]
+        \onslide<5->{&= 2\cos^2 A - 1}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example 1}
+    Suppose $P(-3,4)$ lies on the terminal side of $\theta$ when $\theta$ is in standard position.   \newline\\  \pause
+    \begin{minipage}{0.5\textwidth}
+    \begin{tikzpicture}
+    \draw [<->] (-3,0) -- (2,0) node [right] {$x$};
+    \draw [<->] (0,-2) -- (0,3) node [above] {$y$};
+    \draw[color=red,fill=red] (125:2.5) circle [radius=2.5pt];
+    \draw[color=red] (125:2.5) -- (0,0);
+    \draw[->] (1,0) arc (0:125:1) node [midway, above] {$\theta$};
+    \draw[dashed] (125:2.5) -- (-1.4,0) node [midway, left] {4};
+    \node at (-0.8,0) [below] {$-3$};
+    \end{tikzpicture}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+        \onslide<3->{x^2 + y^2 &= r^2} \\[6pt]
+        \onslide<4->{3^2 + 4^2 &= r^2} \\[6pt]
+        \onslide<5->{r &= 5}
+    \end{align*}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Example 1 \quad $x = -3, y = 4, r = 5$}
+    (a) Find $\cos(2\theta)$
+    \begin{align*}
+        \onslide<2->{\cos(2\theta) &= \cos^2 \theta - \sin^2 \theta} \\[6pt]
+        \onslide<3->{&= \left(\frac{-3}{5}\right)^2 - \left(\frac{4}{5}\right)^2} \\[8pt]
+        \onslide<4->{&= \frac{9}{25} - \frac{16}{25}} \\[8pt]
+        \onslide<5->{&= \frac{-7}{25}}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example 1 \quad $x = -3, y = 4, r = 5$}
+    (b) Find $\sin(2\theta)$
+    \begin{align*}
+        \onslide<2->{\sin(2\theta) &= 2\sin\theta\cos\theta} \\[6pt]
+        \onslide<3->{&= 2\left(\frac{4}{5}\right)\left(\frac{-3}{5}\right)} \\[8pt]
+        \onslide<4->{&= \frac{-24}{25}}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example 1}
+    (c) Which quadrant does $2\theta$ lie in?   \newline\\  \pause
+    \begin{minipage}{0.4\textwidth}
+    \begin{tikzpicture}[scale=0.85]
+    \draw [<->] (2,0) -- (-3,0) node [left] {$180^\circ$};
+    \draw [<->] (0,-2) -- (0,3) node [above] {$90^\circ$};
+    \draw[color=red,fill=red] (125:2.5) circle [radius=2.5pt];
+    \draw[color=red] (125:2.5) -- (0,0);
+    \draw[->] (1,0) arc (0:125:1) node [midway, above] {$\theta$};
+    % \draw[dashed] (125:2.5) -- (-1.4,0) node [midway, left] {4};
+    % \node at (-0.8,0) [below] {$-3$};
+    \end{tikzpicture}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}{0.5\textwidth}
+    \begin{align*}
+    \onslide<3->{&90^\circ < \theta < 180^\circ} \\[6pt]
+    \onslide<4->{&180^\circ < 2\theta < 360^\circ} \\[6pt]
+    \onslide<5->{&\theta \text{ in quadrant 3 or 4}} \\[6pt]
+    \onslide<6->{&\text{Example 1a, $\cos(2\theta) = -$}} \\[6pt]
+    \onslide<7->{&\text{Example 1b, $\sin(2\theta) = -$}} \\[6pt]
+    \onslide<8->{&\text{both negative in Quadrant 3}} 
+    \end{align*}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Example 2}
+    If $\sin\theta = x$ for $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$, find an expression for $\sin(2\theta)$ in terms of $x$. \newline\\  \pause
+    \begin{minipage}{0.5\textwidth}
+    \begin{tikzpicture}
+    \draw[<->] (-2,0) -- (2,0);
+    \draw[<->] (0,-2) node [below] {$-\pi/2$} -- (0,2) node [above] {$\pi/2$};
+    \draw[color=red] (0,0) -- node [midway, above] {1} (1.5,1);
+    \draw[color=red, dashed] (1.5,1) -- (1.5,0) node [midway, right] {$x$};
+    \draw[color=blue] (0,0) -- node [midway, below] {1} (1.5,-1);
+    \draw[color=blue, dashed] (1.5,-1) -- (1.5,0) node [midway, right] {$x$};
+    \end{tikzpicture}
+    \end{minipage}
+    \hspace{0.25cm}
+    \begin{minipage}{0.4\textwidth}
+    \begin{align*}
+        \onslide<3->{\sin \theta &= x} \\[8pt]
+        \onslide<4->{\sin(2\theta) &= 2\sin\theta\cos\theta}
+    \end{align*}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Example 2}
+\begin{minipage}{0.4\textwidth}
+    \begin{tikzpicture}[scale=2]
+    \tkzDefPoints{0/0/A, 1.5/1/B, 1.5/0/C}
+    \tkzDrawPolygon(A,B,C)
+    \tkzLabelSegment[above](A,B){$1$}
+    \tkzLabelSegment[right](B,C){$x$}
+    \tkzLabelSegment[below](A,C){$a$}
+    \tkzLabelAngle[pos=0.35](C,A,B){$\theta$}
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+    \onslide<2->{\cos\theta &= \frac{a}{1} = a} \\[6pt]
+    \onslide<3->{a^2 + x^2 &= 1^2} \\[6pt]
+    \onslide<4->{a^2 &= 1 - x^2} \\[6pt]
+    \onslide<5->{a &= \pm \sqrt{1-x^2}} \\[6pt]
+    \onslide<6->{a &= \sqrt{1-x^2}} \\[6pt]
+    \onslide<7->{\cos\theta &= \sqrt{1-x^2}} 
+\end{align*}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Example 2}
+$\sin \theta = x \quad \cos\theta = \sqrt{1-x^2}$ \newline\\
+\begin{minipage}{0.6\textwidth}
+\begin{tikzpicture}[scale=0.7]
+    \draw[<->] (-4,0) -- (4,0);
+    \draw[<->] (0,-4) node [below] {$-\pi/2$} -- (0,4) node [above] {$\pi/2$};
+    \draw[color=red] (0,0) -- node [midway, above] {1} (3,2);
+    \draw[color=red, dashed] (3,2) -- (3,0) node [midway, right] {$x$};
+    \draw[color=blue] (0,0) -- node [midway, below] {1} (3,-2);
+    \draw[color=blue, dashed] (3,-2) -- (3,0) node [midway, right] {$x$};
+    \node at (2,0) [xshift=-0.2cm, yshift=0.2cm] {\scriptsize $\sqrt{1-x^2}$};
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.3\textwidth}
+\begin{align*}
+    \onslide<2->{\sin(2\theta) &= 2\sin\theta \cos\theta} \\[6pt]
+    \onslide<3->{&= 2x\sqrt{1-x^2}}
+\end{align*}
+\end{minipage}
+\end{frame}
+
+\begin{frame}{Example 3}
+    Verify the identity
+    \[ \sin(2\theta) = \frac{2\tan\theta}{1+\tan^2\theta} \]
+\begin{align*}
+    \onslide<2->{2\sin\theta\cos\theta &= \frac{2\left(\frac{\sin\theta}{\cos\theta}\right)}{1+\frac{\sin^2\theta}{\cos^2\theta}}} \onslide<3->{\left(\frac{\cos^2\theta}{\cos^2\theta}\right)} \\[10pt]
+    \onslide<4->{&=\frac{2\sin\theta\cos\theta}{\cos^2\theta + \sin^2\theta}} \\[10pt]
+    \onslide<5->{&= 2\sin\theta\cos\theta}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 4}
+Express $\cos(3\theta)$ as a polynomial in terms of $\cos\theta$.
+\begin{align*}
+    \onslide<2->{\cos(3\theta) &= \cos({\color{red}2\theta} + \theta)} \\[8pt]
+    \onslide<3->{&= \cos({\color{red}2\theta})\cos\theta - \sin({\color{red}2\theta})\sin\theta} \\[8pt]
+    \onslide<4->{&= {\color{red}(2\cos^2\theta-1)}\cos\theta - {\color{red}2\sin\theta\cos\theta}\sin\theta } \\[8pt]
+    \onslide<5->{&= 2\cos^3\theta - \cos\theta -2\cos\theta{\color{blue}\sin^2\theta}} \\[8pt]
+    \onslide<6->{&= 2\cos^3\theta - \cos\theta -2\cos\theta{\color{blue}(1-\cos^2\theta)}} \\[8pt]
+    \onslide<7->{&= 2\cos^3\theta - \cos\theta - 2\cos\theta + 2\cos^3\theta} \\[8pt]
+    \onslide<8->{&= 4\cos^3\theta - 3\cos\theta}
+\end{align*}
+\end{frame}
+
+\section{Solve problems using power-reduction identities}
+
+\begin{frame}{Power-Reduction Identities}
+    The power-reduction identities can be derived from the alternate equations for $\cos(2A)$.   \newline\\  \pause
+    
+    For $\cos(2A) = 2\cos^2A - 1$, if we solve for $\cos^2 A$, we get
+    \[
+    \cos^2 A = \frac{1+\cos(2A)}{2}
+    \]
+    \pause
+    And for $\cos(2A) = 1 - 2\sin^2 A$, solving for $\cos^2 A$ gives us
+    \[
+    \sin^2 A = \frac{1-\cos(2A)}{2}
+    \]
+\end{frame}
+
+\begin{frame}{Example 5}
+Rewrite $\sin^2\theta\cos^2\theta$ as a sum and difference of cosines to the first power.
+\begin{align*}
+    \onslide<2->{(\sin^2\theta)(\cos^2\theta) &= \left(\frac{1-\cos(2\theta)}{2}\right)\left(\frac{1+\cos(2\theta)}{2}\right)} \\[8pt]
+    \onslide<3->{&= \frac{1-{\color{red}\cos^2(2\theta)}}{4}} \\
+\end{align*}
+\begin{align*}
+    \onslide<4->{\cos^2\theta &= \frac{1+\cos(2\theta)}{2}} \\[8pt]
+    \onslide<5->{\cos^2(2\theta) &= \frac{1+\cos(2(2\theta))}{2}} \\[8pt]
+    \onslide<6->{{\color{red}\cos^2(2\theta)} &= {\color{red} \frac{1+\cos(4\theta)}{2}}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 5}
+    \begin{align*}
+        &= \frac{1-{\color{red} \dfrac{1+\cos(4\theta)}{2}}}{4} \onslide<2->{\left(\frac{2}{2}\right)} \\[10pt]
+        \onslide<3->{&=\frac{2-(1+\cos(4\theta))}{8}} \\[10pt]
+        \onslide<4->{&= \frac{2-1-\cos(4\theta)}{8}}    \\[10pt]
+        \onslide<5->{&= \frac{1-\cos(4\theta)}{8}}
+    \end{align*}
+\end{frame}
+
+\section{Solve problems using half-angle identities}
+
+\begin{frame}{Half-Angle Identities}
+The Half-Angle Identities can be found by evaluating the Power-Reducing Identities for $\frac{\theta}{2}$ instead of $\theta$, and then taking the square root of both sides.    
+\end{frame}
+
+\begin{frame}{Half-Angle Identities}
+\begin{align*}
+    \onslide<1->{\cos^2\theta &= \frac{1+\cos(2\theta)}{2}} \\[10pt]
+    \onslide<2->{\cos^2\left({\color{red}\frac{\theta}{2}}\right) &= \frac{1+\cos\left(2\cdot{\color{red}\frac{\theta}{2}}\right)}{2}} \\[10pt]
+    \onslide<3->{\cos^2\left(\frac{\theta}{2}\right) &= \frac{1+\cos\theta}{2}} \\[10pt]
+    \onslide<4->{\cos\left(\frac{\theta}{2}\right) &= \pm \sqrt{\frac{1+\cos\theta}{2}}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Half-Angle Identities}
+    \begin{align*}
+        \cos\left(\frac{\theta}{2}\right) &= \pm \sqrt{\frac{1+\cos\theta}{2}}   \\[18pt]
+        \sin\left(\frac{\theta}{2}\right) &= \pm \sqrt{\frac{1-\cos\theta}{2}}   \\[18pt]
+        \tan\left(\frac{\theta}{2}\right) &= \dfrac{1-\cos\theta}{\sin\theta} = \dfrac{\sin\theta}{1+\cos\theta}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example 6}
+    Find the exact value of $\cos 112.5^\circ$.
+\begin{align*}
+    \onslide<2->{\cos 112.5^\circ &= \cos\left(\frac{225^\circ}{2}\right)} \\[8pt]
+    \onslide<3->{&= -\sqrt{\frac{1+\cos(225^\circ)}{2}}} \\[8pt]
+    \onslide<4->{&= -\sqrt{\frac{1+\left(-\frac{\sqrt{2}}{2}\right)}{2}\onslide<5->{\cdot\frac{2}{2}}}} \\[8pt]
+    \onslide<6->{&=-\sqrt{\frac{2-\sqrt{2}}{4}}} 
+\end{align*}
+\end{frame}
+\begin{frame}{Example 6}
+\begin{align*}
+    \onslide<1->{&=\frac{-\sqrt{2-\sqrt{2}}}{\sqrt{4}}} \\[10pt]
+    \onslide<2->{&= \frac{-\sqrt{2-\sqrt{2}}}{2}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 7}
+    Suppose $-\pi \leq \theta \leq 0$ with $\cos\theta = -\frac{3}{5}$. Find $\sin\left(\frac{\theta}{2}\right)$.
+    \begin{align*}
+        \onslide<2->{\sin\left(\frac{\theta}{2}\right) &= \pm \sqrt{\frac{1-\cos\theta}{2}}} \\[8pt]
+        \onslide<3->{&= \pm \sqrt{\frac{1-\left(\frac{-3}{5}\right)}{2}\onslide<4->{\cdot \frac{5}{5}}} } \\[8pt]
+        \onslide<5->{&=\pm \sqrt{\frac{5+3}{10}}} \\[8pt]
+        \onslide<6->{&=\pm \sqrt{\frac{4}{5}}}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example 7}
+    \begin{align*}
+        \pm \sqrt{\frac{4}{5}} &= \pm \frac{2\sqrt{5}}{5} 
+    \end{align*}
+    \[\text{If} -\pi \leq \theta \leq 0 \longrightarrow -\frac{\pi}{2} \leq \frac{\theta}{2} \leq 0\]      \pause
+    \begin{center}
+    $\frac{\theta}{2}$ is in quadrant IV, where sine is \alert{negative}.       \pause
+    \[ -\frac{2\sqrt{5}}{5} \]
+    \end{center}
+\end{frame}
+
+\begin{frame}{Example 8}
+Using $\tan\left(\frac{\theta}{2}\right) = \pm \sqrt{\frac{1-\cos\theta}{1+\cos\theta}}$ derive the identity
+\[
+\tan\left(\frac{\theta}{2}\right) = \frac{\sin\theta}{1+\cos\theta}
+\]
+\end{frame}
+
+\begin{frame}{Example 8}
+    \begin{align*}
+        \tan\left(\frac{\theta}{2}\right) &= \pm \sqrt{\frac{1-\cos\theta}{1+\cos\theta} \onslide<2->{\cdot \frac{1+\cos\theta}{1+\cos\theta}}}    \\[8pt]
+        \onslide<3->{&= \pm \sqrt{\frac{1-\cos^2\theta}{(1+\cos\theta)^2}}} \\[8pt]
+        \onslide<4->{&= \pm \sqrt{\frac{\sin^2\theta}{(1+\cos\theta)^2}}} \\[8pt]
+        \onslide<5->{&= \frac{\sin\theta}{1+\cos\theta}}
+    \end{align*}
+\end{frame}
+
+\end{document}
