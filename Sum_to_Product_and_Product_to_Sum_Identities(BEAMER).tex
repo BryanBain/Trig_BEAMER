@@ -1,0 +1,95 @@
+\documentclass[t,usenames,dvipsnames]{beamer}
+\usetheme{Copenhagen}
+\setbeamertemplate{headline}{} % remove toc from headers
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{amsmath, tkz-euclide, tikz, xcolor, pgfplots, array}
+\usetkzobj{all}
+\pgfplotsset{compat = 1.16}
+\usetikzlibrary{arrows.meta, calc, decorations.pathreplacing}
+\pgfplotsset{every axis/.append style = {axis lines = middle, axis line style = {<->}}}
+\pgfplotsset{every tick label/.append style={font=\tiny}}
+\everymath{\displaystyle}
+
+\title{Sum to Product and Product to Sum Identities}
+\author{}
+\date{}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Objectives}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\section{Write a product of trig functions as a sum of trig functions.}
+
+\begin{frame}{Product to Sum Identities}
+    \begin{align*}
+          & \cos(A + B) &= \cos A \cos B - \sin A \sin B \\
+        + & \cos(A - B) &= \cos A \cos B + \sin A \sin B \\ \hline
+    \end{align*}
+    \begin{align*}
+          \cos(A+B)+\cos(A-B) &= 2\cos A \cos B  \\[8pt]
+          \frac{1}{2}\left(\cos(A+B) + \cos(A-B)\right) &= \cos A \cos B
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Other Product to Sum Identities}
+    \begin{align*}
+        \sin A \sin B &= \frac{1}{2}\left(\cos(A-B) - \cos(A+B)\right) \\[18pt]
+        \sin A \cos B &= \frac{1}{2}\left(\sin(A-B) + \sin(A+B)\right) \\
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example 1}
+Write $\cos(2\theta)\cos(6\theta)$ as a sum
+\begin{align*}
+    \onslide<2->{\cos(2\theta)\cos(6\theta) &= \frac{1}{2}\left(\cos(2\theta+6\theta) + \cos(2\theta-6\theta)\right)}    \\[15pt]
+    \onslide<3->{&=\frac{1}{2}\left(\cos(8\theta) + \cos(-4\theta)\right)}  \\[15pt]
+    \onslide<4->{&= \frac{1}{2}\left(\cos(8\theta) + \cos(4\theta)\right)}
+\end{align*}
+\end{frame}
+
+\section{Write a sum of trig functions as a product of trig functions.}
+
+\begin{frame}{Sum to Product Identities}
+    For $\cos(A+B) + \cos(A-B) = 2\cos A \cos B$,  if we let $x = A + B$ and $y = A - B$, we get
+    \[
+    x + y = 2A \quad \text{and} \quad x - y = 2B
+    \]
+    
+    from which 
+    \[
+    A = \frac{x+y}{2} \quad \text{and} \quad B = \frac{x-y}{2}
+    \]
+    \begin{align*}
+        \cos x + \cos y &= 2\cos\left(\frac{x+y}{2}\right)\cos\left(\frac{x-y}{2}\right)
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Other Sum to Product Identities}
+    \begin{align*}
+        \cos x - \cos y &= -2\sin\left(\frac{x+y}{2}\right) \sin\left(\frac{x-y}{2}\right) \\[15pt]
+        \sin x \pm \sin y &= 2 \sin\left(\frac{x \pm y}{2}\right)\cos\left(\frac{x \mp y}{2}\right)
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Example 2}
+Write $\sin\theta - \sin(3\theta)$ as a product.
+\begin{align*}
+    \onslide<2->{\sin\theta - \sin(3\theta) &= 2\sin\left(\frac{\theta - 3\theta}{2}\right)\cos\left(\frac{\theta + 3\theta}{2}\right)} \\[10pt]
+    \onslide<3->{&= 2\sin\left(\frac{-2\theta}{2}\right)\cos\left(\frac{4\theta}{2}\right)} \\[10pt]
+    \onslide<4->{&= 2\sin(-\theta)\cos(2\theta)} \\[10pt]
+    \onslide<5->{&= -2\sin\theta\cos(2\theta)} 
+\end{align*}
+\end{frame}
+
+\end{document}
