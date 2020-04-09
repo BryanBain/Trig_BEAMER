@@ -35,7 +35,7 @@ Beamer slides of Trig Notes
   <li>Double and Half-Angle Identities</li>
   <li>Product to Sum and Sum to Product Identities</li>
   <li>Trig Equations</li>
-  <li>Law of Sines and Cosines</li>
+  <li>Law of Sines and Law of Cosines</li>
   <li>Area of Triangles</li>
   <li>Parabolas</li>
   <li>Circles</li>
