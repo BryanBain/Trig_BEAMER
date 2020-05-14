@@ -40,7 +40,7 @@ If we let the $x$-coordinates represent the measure of the angle and let the $y$
     ymin = -2, ymax = 2,
     grid, domain=0:6.25,
     xtick = {0, 0.79, 1.57, 2.36, 3.14, 3.93, 4.71, 5.50, 6.29},
-    xticklabels = {0, $45^\circ$, $90^\circ$, $135^\circ$, $180^\circ$, $225^\circ$, $270^\circ$, $315^\circ$, $360^\circ$},
+    xticklabels = {0, $\tfrac{\pi}{4}$, $\tfrac{\pi}{2}$, $\tfrac{3\pi}{4}$, $\pi$, $\tfrac{5\pi}{4}$, $\tfrac{3\pi}{2}$, $\tfrac{7\pi}{4}$, $2\pi$},
     xlabel = $x$, 
     xlabel style={at=(current axis.right of origin), anchor=west},
     ylabel = $y$,
@@ -114,7 +114,7 @@ The graphs of sine and cosine are \textbf{periodic}, in that the pattern repeats
     grid, domain=-6.25:6.25,
     width = 15cm,
     xtick = {-6.29, -5.5, -4.71, -3.93, -3.14, -2.36, -1.57, -0.79, 0, 0.79, 1.57, 2.36, 3.14, 3.93, 4.71, 5.50, 6.29},
-    xticklabels = {$-360^\circ$, $-315^\circ$, $-270^\circ$, $-225^\circ$, $-180^\circ$, $-135^\circ$, $-90^\circ$, $-45^\circ$, 0, $45^\circ$, $90^\circ$, $135^\circ$, $180^\circ$, $225^\circ$, $270^\circ$, $315^\circ$, $360^\circ$},
+    xticklabels = {$-2\pi$, $-\tfrac{7\pi}{4}$, $-\tfrac{3\pi}{2}$, $-\tfrac{5\pi}{4}$, $-\pi$, $-\tfrac{3\pi}{4}$, $-\tfrac{\pi}{2}$, $-\tfrac{\pi}{4}$, 0, $\tfrac{\pi}{4}$, $\tfrac{\pi}{2}$, $\tfrac{3\pi}{4}$, $\pi$, $\tfrac{5\pi}{4}$, $\tfrac{3\pi}{2}$, $\tfrac{7\pi}{4}$, $2\pi$},
     xlabel = $x$
     ]
     \addplot [color=blue, line width = 1, samples = 50, smooth] {cos(deg(x))};
@@ -148,22 +148,22 @@ y = \sin (Bx) \quad \text{ and } \quad y = \cos (Bx)
 \begin{frame}{Example 2}
 Use a graphing utility to determine the period of each of the following.   \newline\\  
 (a) \quad $y = \sin(2x)$    \newline\\ \pause
-Period = $180^\circ$    \newline\\  \pause
+Period = $\pi$    \vspace{12pt}  \newline\\ \pause
 (b) \quad $y = \cos(3x)$    \newline\\ \pause
-Period = $120^\circ$
+Period = $\frac{2\pi}{3}$
 \end{frame}
 
 \begin{frame}{Example 2}
 (c) \quad $y = \sin \left(\frac{1}{2} x\right)$ \newline\\  \pause
-Period = $720^\circ$    \newline\\  \pause
+Period = $4\pi$    \vspace{12pt}  \newline\\ \pause
 (d) \quad $y = \cos \left(\frac{1}{4} x\right)$ \newline\\  \pause
-Period = $1440^\circ$
+Period = $8\pi$
 \end{frame}
 
 \begin{frame}{Period}
 With $y = \sin(Bx)$ and $y = \cos(Bx)$, looking at the graphs, it would seem that the different values of $B$ affect the graphs in different ways.    \newline\\  \pause 
 
-Notice in each case, our answers are whatever $360^\circ / B$ equals. \newline\\ \pause
+Notice in each case, our answers are whatever $2\pi / B$ equals. \newline\\ \pause
 
 Therefore, the period of the graph of the sine and cosine functions is
 \[
@@ -219,43 +219,43 @@ This value will be how far from the origin your graph shifts: \newline\\  \pause
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Example 4a}
+\begin{frame}{Example 4}
 Determine the phase shift of each of the following. Don't forget to indicate direction. \newline\\
-(a) \quad $y = \sin\left(x-30^\circ\right)$  \pause
+(a) \quad $y = \sin\left(x-\dfrac{\pi}{6}\right)$  \pause
 \begin{align*}
-    \onslide<2->{x-30 &= 0} \\[10pt]
-    \onslide<3->{x &= 30} 
+    \onslide<2->{x-\frac{\pi}{6} &= 0} \\[10pt]
+    \onslide<3->{x &= \frac{\pi}{6}} \\[10pt]
 \end{align*}
-\onslide<4->{The graph is shifted $30^\circ$ to the right.}
+\onslide<4->{The graph is shifted $\dfrac{\pi}{6}$ to the right.}
 \end{frame}
 
-\begin{frame}{Example 4b}
-(b) \quad $y = \cos\left(x+135^\circ\right)$ \pause
+\begin{frame}{Example 4}
+(b) \quad $y = \cos\left(x+\dfrac{3\pi}{4}\right)$ \pause
 \begin{align*}
-    \onslide<2->{x+135 &= 0} \\[10pt]
-    \onslide<3->{x &= -135}
+    \onslide<2->{x+\frac{3\pi}{4} &= 0} \\[10pt]
+    \onslide<3->{x &= -\frac{3\pi}{4}}  \\[10pt]
 \end{align*}
-\onslide<4->{The graph is shifted $135^\circ$ to the left}
+\onslide<4->{The graph is shifted $\dfrac{3\pi}{4}$ to the left}
 \end{frame}
 
-\begin{frame}{Example 4c}
-(c) \quad $y = \sin\left(2x+90^\circ\right)$ \pause
+\begin{frame}{Example 4}
+(c) \quad $y = \sin\left(2x+\dfrac{\pi}{2}\right)$ \pause
 \begin{align*}
-    \onslide<2->{2x+90 &= 0} \\[10pt]
-    \onslide<3->{2x &= -90} \\[10pt]
-    \onslide<4->{x &= -45} 
+    \onslide<2->{2x+\frac{\pi}{2} &= 0} \\[10pt]
+    \onslide<3->{2x &= -\frac{\pi}{2}} \\[10pt]
+    \onslide<4->{x &= -\frac{\pi}{4}}  \\[10pt]
 \end{align*}
-\onslide<5->{The graph is shifted $45^\circ$ to the left}
+\onslide<5->{The graph is shifted $\dfrac{\pi}{4}$ to the left}
 \end{frame}
 
-\begin{frame}{Example 4d}
-(d) \quad $y = \cos\left(3x-270^\circ\right)$ \pause
+\begin{frame}{Example 4}
+(d) \quad $y = \cos\left(3x-\dfrac{3\pi}{2}\right)$ \pause
 \begin{align*}
-    \onslide<2->{3x-270 &= 0} \\[10pt]
-    \onslide<3->{3x &= 270} \\[10pt]
-    \onslide<4->{x &= 90}
+    \onslide<2->{3x-\frac{3\pi}{2} &= 0} \\[10pt]
+    \onslide<3->{3x &= \frac{3\pi}{2}} \\[10pt]
+    \onslide<4->{x &= \frac{\pi}{2}}    \\[10pt]
 \end{align*}
-\onslide<5->{The graph is shifted $90^\circ$ to the right}
+\onslide<5->{The graph is shifted $\dfrac{\pi}{2}$ to the right}
 \end{frame}
 
 \begin{frame}{Summary}
