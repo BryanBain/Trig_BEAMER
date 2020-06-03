@@ -255,16 +255,62 @@ Find a coterminal angle between $0^\circ$ and $360^\circ$ (or 0 and $2\pi$ radia
 \end{align*}
 \end{frame}
 
+\section{Calculate arc length and sector area}
+
+\begin{frame}{Arc Length}
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \draw (0,0) circle (2cm);
+    \draw (0,0) -- (2,0) node [midway, below] {$r$};
+    \draw (0,0) -- (75:2);
+    \draw[color=red,very thick] (2,0) arc (0:75:2) node [midway, above right] {$s$};
+    \node at (0,0) [above right] {$\theta$};
+\end{tikzpicture}
+\end{center}
+\begin{align*}
+    \onslide<2->{\frac{{\color{red}s}}{2\pi r} &= \frac{\theta}{2\pi}}    \\[8pt]
+    \onslide<3->{2\pi {\color{red}s} &= 2\pi r \theta} \\[8pt]
+    \onslide<4->{{\color{red}s} &= r\theta}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Sector Area}
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \draw (0,0) circle (2cm);
+    \draw (0,0) -- (2,0) node [midway, below] {$r$};
+    \draw (0,0) -- (75:2);
+    \draw[fill=yellow!40] (0,0) -- (2,0) arc (0:75:2) -- cycle;
+    \node at (0,0) [above right] {$\theta$};
+\end{tikzpicture}
+\end{center}
+\begin{align*}
+    \onslide<2->{\frac{{\color{blue}A}}{\pi r^2} &= \frac{\theta}{2\pi}}    \\[8pt]
+    \onslide<3->{2\pi {\color{blue}A} &= \theta \pi r^2} \\[8pt]
+    \onslide<4->{{\color{blue}A} &= \frac{1}{2}\theta r^2 }
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 5}
+Find the exact arc length and sector area of the circle with \[r = 5\text{ ft}; \, \theta = \frac{\pi}{2}\]    
+\onslide<2->{Arc length:}
+\begin{align*}
+    \onslide<3->{s &= r\theta} \\[6pt]
+    \onslide<4->{s &= 5\left(\frac{\pi}{2}\right)} \\[6pt]
+    \onslide<5->{s &= \frac{5\pi}{2}\text{ ft}}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Example 5}
+    Sector Area:
+\begin{align*}
+    \onslide<2->{A &= \frac{1}{2}\theta r^2} \\[12pt]
+    \onslide<3->{A &= \frac{1}{2}\left(\frac{\pi}{2}\right)(5^2)} \\[12pt]
+    \onslide<4->{A &= \frac{25\pi}{4}\text{ ft\textsuperscript{2}}}
+\end{align*}
+\end{frame}
     
 \end{document}
 
 
-   \newline\\
-
-{\color{red}\textbf{Example 4.}} 
-\begin{enumerate}[(a)]
-    \item 
-    \item 
-    \item 
-    \item 
-\end{enumerate}
+ 
